@@ -14,6 +14,8 @@ func main() {
 	rootPath := os.Getenv("SCRIPT_NAME")
 
 	router.Handle(rootPath+"/ping", &pingHandler{})
+	router.Handle(rootPath+"/hit/{target}", &hitHandler{})
+	router.Handle(rootPath+"/show/{target}", &showHandler{})
 
 	server := &http.Server{
 		Addr:    ":9999",
